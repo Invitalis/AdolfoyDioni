@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 Aniversario de Bodas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Dancing+Script:wght@400;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --silver: #C0C0C0;
+            --silver-light: #E8E8E8;
+            --navy: #000080;
+            --navy-light: #1a365d;
+            --black: #1a1a1a;
+            --white: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 50%, var(--silver-light) 100%);
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        .invitation-card {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .silver-border {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            border: 2px solid var(--silver);
+            border-radius: 15px;
+            pointer-events: none;
+        }
+
+        .invitation-content {
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pre-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            color: var(--navy);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .anniversary-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 140px;
+            font-weight: 700;
+            background: linear-gradient(45deg, var(--silver) 0%, var(--silver-light) 50%, var(--silver) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .title {
+            font-family: 'Dancing Script', cursive;
+            color: var(--navy);
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        .silver-image {
+            margin: 20px auto;
+            width: 200px;
+            height: auto;
+        }
+
+        .anniversary-icon {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .couple-names {
+            font-family: 'Playfair Display', serif;
+            font-size: 42px;
+            color: var(--black);
+            margin: 30px 0;
+            font-weight: 600;
+        }
+
+        .anniversary-subtitle {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            color: var(--navy-light);
+            margin-top: 15px;
+            margin-bottom: 0;
+        }
+
+        .photo-container {
+            width: 80%;
+            margin: 30px auto;
+            padding: 15px;
+            background: linear-gradient(45deg, var(--silver) 0%, var(--silver-light) 50%, var(--silver) 100%);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .anniversary-photo {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            display: block;
+        }
+
+        .invitation-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 24px;
+            line-height: 1.8;
+            color: var(--navy-light);
+            margin: 30px 0;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 100%);
+            border-radius: 15px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .countdown-item {
+            position: relative;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .countdown-item:not(:last-child)::after {
+            content: ':';
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--silver);
+            font-size: 24px;
+            font-weight: 300;
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: var(--navy);
+            font-weight: 400;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 11px;
+            color: var(--navy-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .details-container {
+            margin: 40px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .detail-box {
+            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 100%);
+            padding: 20px;
+            border-radius: 10px;
+            color: var(--navy);
+        }
+
+        .detail-box h3 {
+            font-family: 'Playfair Display', serif;
+            margin: 0 0 10px 0;
+            color: var(--navy);
+        }
+
+        .confirmation-note {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            color: var(--navy-light);
+            margin: 30px 0 20px 0;
+            line-height: 1.5;
+        }
+
+        .gift-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 20px;
+            color: var(--navy-light);
+            margin: 20px 0;
+            line-height: 1.6;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 100%);
+            border-radius: 10px;
+        }
+
+        .whatsapp-button {
+            background-color: #808080;
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 20px 0;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border: 1px solid #707070;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .whatsapp-button:hover {
+            background-color: #666666;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .watermark-button {
+            margin-top: 40px;
+            padding: 8px 15px;
+            background-color: transparent;
+            border: 1px solid var(--silver);
+            color: #888888;
+            font-size: 12px;
+            font-family: 'Montserrat', sans-serif;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            display: inline-block;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .watermark-button:hover {
+            opacity: 1;
+            background-color: var(--silver-light);
+            color: var(--navy-light);
+        }
+
+        .ornamental-divider {
+            width: 80%;
+            height: 1px;
+            background: var(--silver);
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .ornamental-divider::before,
+        .ornamental-divider::after {
+            content: '♦';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--silver);
+        }
+
+        .ornamental-divider::before {
+            left: -20px;
+        }
+
+        .ornamental-divider::after {
+            right: -20px;
+        }
+
+        @media (max-width: 480px) {
+            .invitation-content {
+                padding: 40px 20px;
+            }
+
+            .pre-title {
+                font-size: 24px;
+            }
+
+            .anniversary-number {
+                font-size: 80px;
+            }
+
+            .couple-names {
+                font-size: 32px;
+            }
+
+            .photo-container {
+                width: 90%;
+            }
+
+            .countdown {
+                gap: 20px;
+                padding: 15px;
+            }
+
+            .countdown-number {
+                font-size: 28px;
+            }
+
+            .countdown-label {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="invitation-card">
+            <div class="silver-border"></div>
+            <div class="invitation-content">
+                <div class="pre-title">Bodas de Plata</div>
+                <div class="anniversary-number">25</div>
+                <h1 class="title">Aniversario de Bodas</h1>
+                
+                <div class="silver-image">
+                    <img src="/Users/allisonjuarez/Desktop/bodadeplata.png" alt="Bodas de Plata" class="anniversary-icon">
+                </div>
+
+                <div class="couple-names">
+                    Adolfo & Dioni
+                    <p class="anniversary-subtitle">Lado a lado, año tras año se llega a sus 25 años.</p>
+                </div>
+
+                <div class="photo-container">
+                    <img src="/Users/allisonjuarez/Desktop/adolfoydioni.jpeg" alt="25 Aniversario" class="anniversary-photo">
+                </div>
+
+                <p class="invitation-text">
+                    Nos gustaría mucho que fueras parte de este día tan especial para nosotros.<br>
+                    Nos complace invitarte a celebrar<br>
+                    nuestras Bodas de Plata
+                </p>
+
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <div id="days" class="countdown-number">00</div>
+                        <div class="countdown-label">Días</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="hours" class="countdown-number">00</div>
+                        <div class="countdown-label">Horas</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="minutes" class="countdown-number">00</div>
+                        <div class="countdown-label">Minutos</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div id="seconds" class="countdown-number">00</div>
+                        <div class="countdown-label">Segundos</div>
+                    </div>
+                </div>
+
+                <div class="details-container">
+                    <div class="detail-box">
+                        <h3>Fecha y Hora</h3>
+                        <p>Domingo 05 de Enero, 2025<br>15:30 horas</p>
+                    </div>
+
+                    <div class="detail-box">
+                        <h3>Lugar</h3>
+                        <p>Eventos Casa San Agustín<br>
+                        Lote 4, calle final, carretera a Loma Alta. San Juan Sacatepéquez</p>
+                    </div>
+
+                    <div class="detail-box">
+                        <h3>Código de Vestimenta</h3>
+                        <p>Formal</p>
+                    </div>
+                </div>
+
+                <p class="confirmation-note">
+                    Es muy importante para nosotros confirmar tu asistencia antes del 10/12/2024
+                </p>
+
+                <button onclick="confirmarAsistencia()" class="whatsapp-button">
+                    Confirmar Asistencia por WhatsApp
+                </button>
+
+                <p class="gift-message">
+                    Su presencia y sus buenos deseos son nuestro mejor regalo. Pero si desean hacernos llegar algún presente estaremos muy agradecidos. Gracias por sus muestras de cariño.
+                </p>
+
+                <div class="ornamental-divider"></div>
+                <a href="https://invitalis.github.io/Pagina" target="_blank" class="watermark-button">
+                    Conócenos aquí
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function confirmarAsistencia() {
+            const telefono = "+50235435006"; // Reemplaza con el número real
+            const mensaje = "¡Hola! Confirmo mi asistencia a la celebración de sus Bodas de Plata.";
+            window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
+        }
+
+        function updateCountdown() {
+            const eventDate = new Date('January 05, 2025 15:30:00').getTime();
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerHTML = days;
+            document.getElementById('hours').innerHTML = hours;
+            document.getElementById('minutes').innerHTML = minutes;
+            document.getElementById('seconds').innerHTML = seconds;
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>

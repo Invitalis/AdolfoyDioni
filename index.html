@@ -81,13 +81,13 @@
         .title {
             font-family: 'Dancing Script', cursive;
             color: var(--navy);
-            font-size: 40px;
+            font-size: 36px;
             margin: 20px 0;
         }
 
         .silver-image {
             margin: 20px auto;
-            width: 200px;
+            width: 250px;
             height: auto;
         }
 
@@ -100,7 +100,7 @@
 
         .couple-names {
             font-family: 'Playfair Display', serif;
-            font-size: 42px;
+            font-size: 52px;
             color: var(--black);
             margin: 30px 0;
             font-weight: 600;
@@ -108,7 +108,7 @@
 
         .anniversary-subtitle {
             font-family: 'Dancing Script', cursive;
-            font-size: 24px;
+            font-size: 25px;
             color: var(--navy-light);
             margin-top: 15px;
             margin-bottom: 0;
@@ -144,7 +144,7 @@
             gap: 30px;
             margin: 40px 0;
             padding: 20px;
-            background: linear-gradient(135deg, var(--silver-light) 0%, var(--white) 100%);
+            background: linear-gradient(0deg, var(--silver-light) 0%, var(--white) 100%);
             border-radius: 15px;
             box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
@@ -352,8 +352,8 @@
                 </div>
 
                 <p class="invitation-text">
-                    Nos gustaría mucho que fueras parte de este día tan especial para nosotros.<br>
-                    Nos complace invitarte a celebrar<br>
+                    Nos gustaría que seas parte de este día tan especial para nosotros,
+                    Por eso, nos complace invitarte a celebrar<br>
                     nuestras Bodas de Plata
                 </p>
 
@@ -384,8 +384,8 @@
 
                     <div class="detail-box">
                         <h3>Lugar</h3>
-                        <p>Eventos Casa San Agustín<br>
-                        Lote 4, calle final, carretera a Loma Alta. San Juan Sacatepéquez</p>
+                        <p>Eventos, Casa San Agustín<br>
+                        Lote 4, Calle final, Carretera a Loma alta. San Juan Sacatepéquez</p>
                     </div>
 
                     <div class="detail-box">
@@ -416,7 +416,7 @@
 
     <script>
         function confirmarAsistencia() {
-            const telefono = "+50235435006"; // Reemplaza con el número real
+            const telefono = "+50235435006";
             const mensaje = "¡Hola! Confirmo mi asistencia a la celebración de sus Bodas de Plata.";
             window.open(`https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`, '_blank');
         }
